@@ -1,1 +1,1 @@
-# preliminar_aidbloom
+# preliminar proyecto synapse
