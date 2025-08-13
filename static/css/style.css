@@ -1,0 +1,37 @@
+:root {
+    --color-principal: rgb(209, 135, 193);
+    --color-segundario: #fff;
+    --color-titulos: #000;
+}
+
+body {
+    background: var(--color-principal);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    color: var(--color-titulos);
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.navbar {
+    background-color: #2c3e50; /* Color de fondo */
+}
+
+.navbar-brand {
+    color: #f1c40f !important; /* Color del texto del logo */
+    font-weight: bold;
+}
+
+.nav-link {
+    color: white !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #1abc9c !important; /* Cambia color al pasar el ratón */
+}
