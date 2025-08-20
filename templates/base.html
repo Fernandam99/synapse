@@ -13,10 +13,12 @@
 
     <!--Estilo propio-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
   <!-- Barra de navegación -->
-  <nav class="navbar navbar-expand-lg bg-light shadow-sm">
+  <nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
     <div class="container-fluid">
       <!-- Logo -->
       <a class="navbar-brand d-flex align-items-center" href="{{ url_for('index') }}">

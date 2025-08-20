@@ -2,34 +2,64 @@
 
 {% block content %}
 <div class="register-page">
-    <div class="auth-container">
-        <div class="logo">
-            <img src="{{ url_for('static', filename='img/small_imagotipo.png') }}" alt="Synapse" class="logo-auth">
+    <div class="container-form">
+        <!-- Panel de bienvenida -->
+        <div class="welcome-back">
+            <div class="message">
+                <h2>¡Hola!</h2>
+                <p>Si ya tienes una cuenta, inicia sesión aquí</p>
+                <a href="{{ url_for('login') }}">
+                    <button type="button" class="btn-login">Iniciar Sesión</button>
+                </a>
+            </div>
         </div>
-        <h2>BIENVENIDO!</h2>
-    
-        <form class="auth-form">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="correo@ejemplo.com">
 
-            <label for="username">User name</label>
-            <input type="text" id="username" placeholder="Elige un nombre">
+        <!-- Formulario de Registro -->
+        <form class="formulario" method="POST" action="{{ url_for('register') }}">
+            <h2 class="create-account">Crear Cuenta</h2>
 
-            <label for="password">Password</label>
-            <div class="input-password">
-                <input type="password" id="password" placeholder="Crea una contraseña">
-                <span class="toggle">👁</span>
+
+           <div class="iconos">
+                <div class="border-icon">
+                    <i class="fab fa-google"></i>
+                </div>
+
+                 <div class="border-icon">
+                    <i class="fab fa-microsoft"></i>
+                 </div>
+
+                <div class="border-icon">
+                    <i class="fab fa-apple"></i>
+                </div>
+
+                <div class="border-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                
             </div>
-        
-            <label for="confirm">Confirm Password</label>
-            <div class="input-password">
-                <input type="password" id="confirm" placeholder="Repite la contraseña">
-                <span class="toggle">👁</span>
-            </div>
-        
-            <button type="submit">Registrar</button>
-            <p class="alt">¿Ya tienes cuenta? <a href="{{ url_for('login') }}">Inicia sesión</a></p>
+            
+            <p class="cuenta-gratis">Crea tu cuenta gratis</p>
+            
+            <!-- Mensajes flash de Flask -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert-message {{ 'success' if category == 'success' else 'error' }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <input type="text" name="name" placeholder="Nombre completo" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            
+            <input type="submit" value="Crear Cuenta">
         </form>
     </div>
 </div>
+
+<!-- Font Awesome para iconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 {% endblock %}
