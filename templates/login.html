@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="login-page">
+    <div class="auth-container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/small_imagotipo.png') }}" alt="Synapse" class="logo-auth">
+        </div>
+        <h2>BIENVENIDO!</h2>
+        <form class="auth-form">
+            <label for="username">User name</label>
+            <input type="text" id="username" placeholder="Ingresa tu nombre">
+            <label for="password">Password</label>
+            <div class="input-password">
+                <input type="password" id="password" placeholder="Ingresa tu contraseña">
+                <span class="toggle">👁</span>
+            </div>
+            <div class="options">
+                <label><input type="checkbox"> Recordar</label>
+                <a href="#">¿Olvidó su contraseña?</a>
+            </div>
+            <button type="submit">Login</button>
+            <p class="alt">¿No tienes cuenta? <a href="{{ url_for('register') }}">Regístrate</a></p>
+        </form>
+    </div>
+</div>
+{% endblock %}

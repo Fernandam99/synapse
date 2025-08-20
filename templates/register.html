@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="register-page">
+    <div class="auth-container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/small_imagotipo.png') }}" alt="Synapse" class="logo-auth">
+        </div>
+        <h2>BIENVENIDO!</h2>
+    
+        <form class="auth-form">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="correo@ejemplo.com">
+
+            <label for="username">User name</label>
+            <input type="text" id="username" placeholder="Elige un nombre">
+
+            <label for="password">Password</label>
+            <div class="input-password">
+                <input type="password" id="password" placeholder="Crea una contraseña">
+                <span class="toggle">👁</span>
+            </div>
+        
+            <label for="confirm">Confirm Password</label>
+            <div class="input-password">
+                <input type="password" id="confirm" placeholder="Repite la contraseña">
+                <span class="toggle">👁</span>
+            </div>
+        
+            <button type="submit">Registrar</button>
+            <p class="alt">¿Ya tienes cuenta? <a href="{{ url_for('login') }}">Inicia sesión</a></p>
+        </form>
+    </div>
+</div>
+{% endblock %}
