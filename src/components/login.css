@@ -1,0 +1,312 @@
+.login-container {
+  min-height: 100vh;
+  background: var(--color-fondo);
+}
+
+.login-page {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  gap: 50px;
+  flex-direction: row;
+}
+
+/* Panel de bienvenida */
+.welcome-back {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-texto-blanco);
+  flex: 1;
+}
+
+.message {
+  padding: 2rem;
+}
+
+.message h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  color: var(--color-texto-blanco);
+}
+
+.message p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  color: var(--color-texto-blanco);
+}
+
+.btn-register {
+  padding: 12px 40px;
+  font-weight: 500;
+  background: transparent;
+  border: 2px solid var(--color-secundario);
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--color-secundario);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-register:hover {
+  background: var(--color-boton-fondo-hover);
+  color: var(--color-boton-texto-hover);
+  transform: translateY(-2px) rotate(5deg);
+}
+
+/* Formulario principal */
+.formulario {
+  width: 100%;
+  max-width: 500px;
+  padding: 3rem;
+  background: var(--color-formulario);
+  backdrop-filter: blur(12px);
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--color-texto-negro-border);
+  animation: slideInUp 0.6s ease-out;
+  color: var(--color-texto-negro);
+}
+
+.create-account {
+  padding: 1.5rem 0;
+  font-size: 2rem;
+  color: var(--color-texto-negro);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Iconos sociales */
+.iconos {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  margin-bottom: 2rem;
+  gap: 10px;
+}
+
+.border-icon {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-iconos-border);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  color: var(--color-texto-negro);
+  cursor: pointer;
+}
+
+.border-icon:hover {
+  background-color: var(--color-iconos-fondo-hover);
+  border-color: var(--color-iconos-border-hover);
+  transform: scale(1.1);
+}
+
+.cuenta-gratis {
+  padding: 1rem 0;
+  color: var(--color-texto-negro-opaco);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Mensajes de estado */
+.alert-message {
+  background: var(--color-alert-error);
+  color: var(--color-secundario);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.alert-message.success {
+  background: var(--color-alert-success);
+}
+
+/* Grupos de inputs */
+.input-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.formulario input[type="email"],
+.formulario input[type="password"] {
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-bottom: 0.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--color-texto-negro-borde-input);
+  text-align: center;
+  outline: none;
+  padding: 14px 0;
+  font-size: 1.2rem;
+  color: var(--color-input-texto);
+  transition: border-color 0.3s ease;
+}
+
+.formulario input[type="email"]:focus,
+.formulario input[type="password"]:focus {
+  border-bottom-color: var(--color-boton-texto-hover);
+}
+
+.formulario input[type="email"].error,
+.formulario input[type="password"].error {
+  border-bottom-color: #dc3545;
+  animation: shake 0.3s ease-in-out;
+}
+
+.formulario input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.95rem;
+}
+
+.formulario input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.error-text {
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Botón principal */
+.submit-btn {
+  width: 80%;
+  margin: auto;
+  border: 2px solid var(--color-boton-texto-hover);
+  padding: 15px;
+  border-radius: 30px;
+  background-color: transparent;
+  font-weight: 500;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--color-boton-texto-hover);
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: var(--color-boton-texto-hover);
+  color: var(--color-secundario);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.submit-btn.loading {
+  background-color: var(--color-boton-texto-hover);
+  color: var(--color-secundario);
+}
+
+/* Link alternativo */
+.alt-link {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-texto-negro-border);
+}
+
+.alt-link p {
+  color: var(--color-texto-negro-opaco);
+  font-size: 0.9rem;
+}
+
+.alt-link .link {
+  color: var(--color-boton-texto-hover);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.alt-link .link:hover {
+  color: var(--color-texto-negro);
+  text-decoration: underline;
+}
+
+/* Animaciones */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .container-form {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .welcome-back {
+    display: none;
+  }
+  
+  .formulario {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 10px;
+  }
+
+  .formulario {
+    padding: 2rem 1.5rem;
+  }
+  
+  .iconos {
+    width: 180px;
+  }
+  
+  .border-icon {
+    height: 40px;
+    width: 40px;
+    font-size: 1rem;
+  }
+
+  .create-account {
+    font-size: 1.7rem;
+  }
+
+  .message h2 {
+    font-size: 2rem;
+  }
+
+  .message p {
+    font-size: 1rem;
+  }
+}
