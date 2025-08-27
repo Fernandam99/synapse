@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="login-page">
+    <div class="container-form">
+        <!-- Panel de bienvenida -->
+        <div class="welcome-back">
+            <div class="message">
+                <h2>Bienvenido de nuevo</h2>
+                <p>Si aún no tienes una cuenta por favor regístrese aquí</p>
+                <a href="{{ url_for('register') }}">
+                    <button type="button" class="btn-register">Registrarse</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Formulario de Login -->
+        <form class="formulario" method="POST" action="{{ url_for('login') }}">
+            <h2 class="create-account">Iniciar Sesión</h2>
+            
+            <div class="iconos">
+                <div class="border-icon">
+                    <i class="fab fa-google"></i>
+                </div>
+
+                 <div class="border-icon">
+                    <i class="fab fa-microsoft"></i>
+                 </div>
+
+                <div class="border-icon">
+                    <i class="fab fa-apple"></i>
+                </div>
+
+                <div class="border-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+            </div>
+            
+            <p class="cuenta-gratis">¿Aún no tienes una cuenta?</p>
+            
+            <!-- Mensajes flash de Flask -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert-message {{ 'success' if category == 'success' else 'error' }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+    </div>
+</div>
+
+<!-- Font Awesome para iconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}
