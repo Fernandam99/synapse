@@ -1,29 +1,26 @@
+// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import LoginPage from './components/LoginPage';
-import RegisterPage from './components/RegisterPage';
-import HomePage from './components/HomePage';
-import './App.css';
+
+import Index from './Index.jsx';
+import Login from './Login.jsx';
+import Register from './Register.jsx';
+import Mision from './mission.jsx';   
+
+import './css/style.css';
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Routes>
-          {/* Ruta principal redirige a login */}
-          <Route path="/" element={<Navigate to="/login" />} />
-          
-          {/* Rutas de autenticación */}
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          
-          {/* Ruta de inicio (después del login) */}
-          <Route path="/home" element={<HomePage />} />
-          
-          {/* Ruta 404 */}
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
-      </div>
+      <Routes>
+        {/* 👇 Que el root "/" vaya al index */}
+        <Route path="/" element={<Navigate to="/index" replace />} />
+        <Route path="/index" element={<Index />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/mision" element={<Mision />} /> 
+        <Route path="*" element={<Navigate to="/index" replace />} />
+      </Routes>
     </Router>
   );
 }
